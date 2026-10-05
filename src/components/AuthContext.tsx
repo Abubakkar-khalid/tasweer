@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const adminUser = { username, isAdmin: true, avatarUrl: '/hero.jpg', token: data.access };
         setUser(adminUser);
         localStorage.setItem('tasweer_user', JSON.stringify(adminUser));
-        return true;
+        return { success: true, isAdmin: true };
       } else {
         // Customer login (fallback to localstorage mock)
         const registeredUsers = JSON.parse(localStorage.getItem('tasweer_users') || '{"user": "user"}');
@@ -68,13 +68,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           const customer = { username, isAdmin: false };
           setUser(customer);
           localStorage.setItem('tasweer_user', JSON.stringify(customer));
-          return true;
+          return { success: true, isAdmin: false };
         }
       }
     } catch (error) {
       console.error("Login error:", error);
     }
-    return false;
+    return { success: false, isAdmin: false };
   };
 
   const signup = (username: string, password: string) => {
