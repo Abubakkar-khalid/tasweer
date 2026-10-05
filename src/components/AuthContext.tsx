@@ -13,7 +13,7 @@ interface User {
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (username: string, password: string) => Promise<boolean>;
+  login: (username: string, password: string) => Promise<{ success: boolean; isAdmin: boolean; }>;
   signup: (username: string, password: string) => boolean;
   logout: () => void;
   updateAvatar: (url: string) => void;
@@ -24,7 +24,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({
   user: null,
   isLoading: true,
-  login: async () => false,
+  login: async () => ({ success: false, isAdmin: false }),
   signup: () => false,
   logout: () => {},
   updateAvatar: () => {},
