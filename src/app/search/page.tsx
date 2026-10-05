@@ -29,7 +29,7 @@ function SearchResults() {
       {searchResults.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-6 sm:gap-x-8">
           {searchResults.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard key={product.id} {...product} imageUrl={product.images[0] || ''} />
           ))}
         </div>
       ) : (

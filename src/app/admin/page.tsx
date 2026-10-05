@@ -32,7 +32,7 @@ export default function AdminPage() {
   });
   
   const [uploadedImages, setUploadedImages] = useState<{url: string, file?: File, id?: number}[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [selectedSizes, setSelectedSizes] = useState<{name: string, inStock: boolean}[]>([]);
   const SIZES_LIST = ['S', 'M', 'L', 'XL', 'XXL'];
   const [newCategory, setNewCategory] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
