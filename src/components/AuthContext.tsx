@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (username: string, password: string) => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/token/', {
+      const response = await fetch('https://AbubakarKhalid.pythonanywhere.com/api/token/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const forgotPassword = async (username: string, newPass: string) => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/reset-password/', {
+      const response = await fetch('https://AbubakarKhalid.pythonanywhere.com/api/reset-password/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, new_password: newPass })
@@ -127,7 +127,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     
     // We omit checking the old password here for simplicity, but in production
     // a proper JWT protected endpoint checking old password is required.
-    fetch('http://127.0.0.1:8000/api/reset-password/', {
+    fetch('https://AbubakarKhalid.pythonanywhere.com/api/reset-password/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: user.username, new_password: newPass })

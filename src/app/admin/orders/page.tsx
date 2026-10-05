@@ -39,7 +39,7 @@ export default function AdminOrdersPage() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/orders/');
+      const res = await fetch('https://AbubakarKhalid.pythonanywhere.com/api/orders/');
       if (res.ok) {
         const data = await res.json();
         setOrders(data);
@@ -76,7 +76,7 @@ export default function AdminOrdersPage() {
 
   const updateOrderStatus = async (id: number, status: OrderStatus) => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/orders/${id}/`, {
+      const res = await fetch(`https://AbubakarKhalid.pythonanywhere.com/api/orders/${id}/`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status })

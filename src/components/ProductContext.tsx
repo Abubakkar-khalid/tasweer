@@ -51,8 +51,8 @@ export function ProductProvider({ children }: { children: ReactNode }) {
   const refreshProducts = async () => {
     try {
       const [productsRes, categoriesRes] = await Promise.all([
-        fetch('http://127.0.0.1:8000/api/products/'),
-        fetch('http://127.0.0.1:8000/api/categories/')
+        fetch('https://AbubakarKhalid.pythonanywhere.com/api/products/'),
+        fetch('https://AbubakarKhalid.pythonanywhere.com/api/categories/')
       ]);
 
       if (productsRes.ok) {
@@ -71,7 +71,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
             originalPrice: p.original_price ? parseFloat(p.original_price) : undefined,
             description: p.description,
             images: p.images.map((img: any) => 
-              img.image.startsWith('http') ? img.image : `http://127.0.0.1:8000${img.image.startsWith('/') ? '' : '/'}${img.image}`
+              img.image.startsWith('http') ? img.image : `https://AbubakarKhalid.pythonanywhere.com${img.image.startsWith('/') ? '' : '/'}${img.image}`
             ),
             category: p.category.name,
             inStock: p.in_stock,
@@ -113,7 +113,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       const headers: any = {};
       if (user?.token) headers['Authorization'] = `Bearer ${user.token}`;
       
-      const response = await fetch(`http://127.0.0.1:8000/api/products/${id}/`, {
+      const response = await fetch(`https://AbubakarKhalid.pythonanywhere.com/api/products/${id}/`, {
         method: 'DELETE',
         headers
       });
@@ -147,7 +147,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
         };
         if (user?.token) headers['Authorization'] = `Bearer ${user.token}`;
         
-        const response = await fetch(`http://127.0.0.1:8000/api/products/${id}/`, {
+        const response = await fetch(`https://AbubakarKhalid.pythonanywhere.com/api/products/${id}/`, {
           method: 'PATCH',
           headers,
           body: JSON.stringify(payload)

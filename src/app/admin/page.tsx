@@ -110,8 +110,8 @@ export default function AdminPage() {
 
     try {
       const url = editingProductId 
-        ? `http://127.0.0.1:8000/api/products/${editingProductId}/`
-        : `http://127.0.0.1:8000/api/products/`;
+        ? `https://AbubakarKhalid.pythonanywhere.com/api/products/${editingProductId}/`
+        : `https://AbubakarKhalid.pythonanywhere.com/api/products/`;
       
       const method = editingProductId ? 'PUT' : 'POST';
 

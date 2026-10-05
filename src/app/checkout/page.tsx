@@ -42,7 +42,7 @@ export default function CheckoutPage() {
         }))
       };
 
-      const res = await fetch('http://127.0.0.1:8000/api/orders/', {
+      const res = await fetch('https://AbubakarKhalid.pythonanywhere.com/api/orders/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
